@@ -1,0 +1,24 @@
+Database Normalization (Sample Document)
+
+Normalization is a database design technique that organizes data into tables to reduce redundancy and improve data integrity. It works by decomposing large tables into smaller, related tables connected through keys.
+
+First Normal Form (1NF)
+A table is in 1NF when every column holds atomic (indivisible) values and there are no repeating groups. For example, a column storing multiple phone numbers must be split so each row holds one phone number.
+
+Second Normal Form (2NF)
+A table is in 2NF when it is in 1NF and every non-key attribute depends on the whole primary key. This removes partial dependencies, which appear when a table has a composite key.
+
+Third Normal Form (3NF)
+A table is in 3NF when it is in 2NF and no non-key attribute depends on another non-key attribute. This removes transitive dependencies. For example, storing both ZipCode and City in a Customer table is a transitive dependency when City depends on ZipCode.
+
+Boyce-Codd Normal Form (BCNF)
+BCNF is a stricter version of 3NF. For every functional dependency X -> Y, X must be a super key. BCNF handles anomalies that 3NF can miss when a table has overlapping candidate keys.
+
+Anomalies
+Without normalization, tables suffer from insertion, update and deletion anomalies. An update anomaly occurs when the same fact is stored in several rows and only some of them are changed.
+
+Denormalization
+Denormalization deliberately adds redundancy to speed up read-heavy queries, such as in data warehouses. It trades storage and consistency for performance.
+
+Conclusion
+Normalization improves consistency and maintainability, while denormalization is used selectively for performance. Most transactional systems aim for 3NF or BCNF.
